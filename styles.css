@@ -243,3 +243,22 @@ video {
 }
 /*media queries*/
 
+@media screen and (min-width: 200px) and (max-width: 800px) {
+    
+    .left-side .story .aa {
+        display: none;
+    }
+    .right-side{
+        display: none;
+    }
+    .left-side .story .bb {
+        margin-right: 20px;
+    }
+    .left-side{
+        width:100%;
+    }
+    .social-icons li:not(:nth-child(5)) {
+        display: none; 
+    }
+    
+    }
