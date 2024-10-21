@@ -3,7 +3,7 @@ This is a clone project of Instagram app. It contains the clone UI of Instagram 
 It's a good repo project for beginners.
 
 ## Want to preview?
-This project is live [here]("https://subedibinod.github.io/insta-clone/"). 
+This project is live [here](https://subedibinod.github.io/insta-clone/). 
 
 ## Want to contribute?
   This repository is open to contribute. To contribute follow these steps:
