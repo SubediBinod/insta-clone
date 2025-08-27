@@ -56,7 +56,8 @@ header nav ul li i{
 section{
     padding:30px 18%;
     background-color: #fafafa;
-    display:flex
+    display:flex;
+    min-height: 100vh;
 }
 .left-side{
     width:65%;
@@ -65,30 +66,36 @@ section{
     width:35%;
 }
 .story{
-    display:flex;
-    padding:16px;
+    display: flex;
+    padding: 16px;
     background-color: white;
-    border:1px solid rgba(210,219,219,1);
+    border: 1px solid rgba(210,219,219,1);
     border-radius: 3px;
+    overflow-x: hidden;
+    gap: 10px;
 }
 .story .stories{
-    width:17%;
+    flex: 0 0 auto;
+    width: 17%;
+    min-width: 70px;
+    text-align: center;
 }
 .story .stories a img{
     border-radius: 50%;
-    border:2px solid rgba(210,219,219,1);
-    padding :1px;
-    object-fit: cover;/*When you apply object-fit: cover; to an image or video, 
-    it means that the content will be resized to cover the entire container while maintaining its aspect ratio. */
+    border: 2px solid rgba(210,219,219,1);
+    padding: 1px;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
 }
 .story .stories p{
-    width:90%;
+    width: 100%;
     overflow: hidden;
-    white-space: nowrap;/*The CSS property white-space: nowrap; 
-    is used to prevent text from wrapping to the next line within 
-    its containing element. */
+    white-space: nowrap;
     text-overflow: ellipsis;
-    color:black;
+    color: black;
+    font-size: 12px;
+    margin-top: 5px;
 }
 /*post*/
 .post{
@@ -98,30 +105,36 @@ section{
     border-radius: 3px;
 }
 .post .post-bar{
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    padding: 14px 16px;
 }
-.post .post-title .post-left{
+.post .post-bar .post-left{
     display: flex;
     align-items: center;
 }
 .post .post-bar .post-left .image{
-    margin-right:15px;
-}
-.post .post-bar .post-left .image, .post .post-bar .post-left .details {
-    display: inline-block;
-    margin-right: 10px;
-    padding-right:10px;
+    margin-right: 12px;
 }
 .post .post-bar .post-left .image img{
     border-radius: 50%;
     object-fit: cover;
 }
 .post .post-bar .post-left .details .name{
-    padding-bottom: 2px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    margin-bottom: 2px;
+}
+.post .post-bar .post-left .details .location{
+    font-size: 11px;
+    color: #8e8e8e;
+}
+.post .post-bar .post-right i{
+    font-size: 16px;
+    color: #262626;
+    cursor: pointer;
 }
 .post .post-content img{
     width:100%;
@@ -131,36 +144,74 @@ section{
 .post .post-footer{
     display: flex;
     justify-content: space-between;
-    padding :16px;
+    align-items: center;
+    padding: 6px 16px 8px 16px;
 }
 .post .post-footer .like-share-comments i{
-    font-size: 26px;
-    margin-right: 10px;
-    
+    font-size: 24px;
+    margin-right: 16px;
+    color: #262626;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
-.post .post-footer .save{
-    font-size: 22px;
+.post .post-footer .like-share-comments i:hover{
+    color: #8e8e8e;
+    transform: scale(1.1);
+}
+.post .post-footer .like-share-comments i.fas.fa-heart{
+    color: #ed4956;
+}
+.post .post-footer .save i{
+    font-size: 24px;
+    color: #262626;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.post .post-footer .save i:hover{
+    color: #8e8e8e;
+    transform: scale(1.1);
 }
 .post .post-footer-content{
-    padding :0 16px 16px 16px; 
+    padding: 0 16px 16px 16px; 
 }
 .post .post-footer-content p{
-    margin-bottom:3px;
-
+    margin-bottom: 4px;
+    line-height: 1.4;
 } 
 .post .post-footer-content .likes{
     margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
 }
 .post .post-footer-content .name{
     font-weight: 600;
+    font-size: 14px;
+    color: #262626;
 }
 .post .post-footer-content .name span{
-    margin-left:10px;
-    font-weight:normal;
+    margin-left: 5px;
+    font-weight: 400;
+    color: #262626;
+}
+.post .post-footer-content .comments{
+    color: #8e8e8e;
+    font-size: 14px;
+    cursor: pointer;
+}
+.post .post-footer-content .comments:hover{
+    color: #262626;
+}
+.post .post-footer-content .post-time{
+    color: #8e8e8e;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    margin-top: 5px !important;
 }
 .post .add-comments{
     padding: 16px;
-    border-top:1px solid #efefef;
+    border-top: 1px solid #efefef;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -168,16 +219,39 @@ section{
 .post .add-comments .left-side{
     display: flex;
     align-items: center;
+    flex-grow: 1;
 }
 .post .add-comments .left-side i{
     font-size: 22px;
-    margin-right: 15px;;
+    margin-right: 15px;
+    color: #262626;
+    cursor: pointer;
 }
 .post .add-comments .left-side input{
-    width:100%;
+    flex-grow: 1;
     outline: none;
-    border:none;
-
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #262626;
+}
+.post .add-comments .left-side input::placeholder{
+    color: #8e8e8e;
+}
+.post .add-comments .right-side{
+    margin-left: 10px;
+}
+.post .add-comments .right-side p{
+    color: #0095f6;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.post .add-comments .right-side p.active{
+    opacity: 1;
+    pointer-events: all;
 }
 .post .post-content .video-container {
     width: 100%;
@@ -193,72 +267,316 @@ video {
 }
 .right-side{
     width: 35%;
-    margin-top:5%;
-    position: fixed;
-    right: 50px;
+    margin-top: 5%;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    margin-left: 30px;
 }
 .right-side .profile-title{
-    display:flex;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 .right-side .profile-title .profile-left{
-    display:flex;
-    align-items: centre;
-    margin-right: 40px;
+    display: flex;
+    align-items: center;
 }
 .right-side .profile-title .profile-left .image img{
-    border: radius 50%;
-    margin-right:15px;
-
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
 }
-.right-side .profile-title .details .name{
-    padding-bottom:3px;
+.right-side .profile-title .profile-left .details .Name{
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    margin-bottom: 2px;
+}
+.right-side .profile-title .profile-left .details .usr-name{
+    font-size: 14px;
+    color: #8e8e8e;
+}
+.right-side .profile-title .profile-right p{
+    color: #0095f6;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
 }
 .suggestions{
-    display:flex;
-    margin-top:25px;
-    margin-bottom:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
-.suggestions p{
-    margin-right:90px;
+.suggestions p:first-child{
+    font-weight: 600;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+.suggestions p:last-child{
+    font-size: 12px;
+    font-weight: 600;
+    color: #262626;
+    cursor: pointer;
 }
 .suggestion-title {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 15px;
+    padding: 8px 0;
 }
 .suggestion-title .suggestion-left{
     display: flex;
     align-items: center;
-    margin-right:90px;
 }
 .suggestion-title .suggestion-left .image img{
-    border: radius 50%;
-    margin-right:15px;
+    border-radius: 50%;
+    margin-right: 12px;
     object-fit: cover;
-
 }
 .suggestion-title .suggestion-left .details .name{
-    padding-bottom: 3px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    margin-bottom: 2px;
+}
+.suggestion-title .suggestion-left .details .location{
+    font-size: 12px;
+    color: #8e8e8e;
+}
+.suggestion-title .suggestion-right p{
+    color: #0095f6;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.suggestion-title .suggestion-right p:hover{
+    color: #00376b;
 }
 /*media queries*/
 
-@media screen and (min-width: 200px) and (max-width: 800px) {
-    
-    .left-side .story .aa {
-        display: none;
-    }
-    .right-side{
-        display: none;
-    }
-    .left-side .story .bb {
-        margin-right: 20px;
-    }
-    .left-side{
-        width:100%;
-    }
-    .social-icons li:not(:nth-child(5)) {
-        display: none; 
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 10px 5%;
     }
     
+    section {
+        padding: 20px 5%;
     }
+    
+    .right-side {
+        right: 20px;
+        width: 30%;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    header .icon img {
+        height: 40px;
+        width: 100px;
+    }
+    
+    header .search-bar {
+        width: 200px;
+        padding: 5px 10px;
+    }
+    
+    header .search-bar input {
+        font-size: 14px;
+    }
+    
+    header nav ul li {
+        margin-right: 15px;
+    }
+    
+    header nav ul li i {
+        font-size: 22px;
+    }
+    
+    section {
+        padding: 20px 15px;
+        margin-top: 70px; /* Account for fixed header */
+        flex-direction: column;
+    }
+    
+    .left-side {
+        width: 100%;
+    }
+    
+    .right-side {
+        display: none;
+    }
+    
+    .story {
+        padding: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .story::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+    
+    .story .stories {
+        display: inline-block;
+        width: auto;
+        margin-right: 15px;
+        text-align: center;
+        white-space: normal;
+    }
+    
+    .story .stories.aa {
+        display: none;
+    }
+    
+    .story .stories p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
+    .post {
+        margin: 15px 0;
+    }
+    
+    .post .post-content img {
+        max-height: 400px;
+        object-fit: cover;
+    }
+    
+    .post .post-content .video-container {
+        max-height: 400px;
+    }
+    
+    .post .post-content video {
+        max-height: 400px;
+        object-fit: cover;
+    }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 8px 10px;
+    }
+    
+    header .icon img {
+        height: 35px;
+        width: 90px;
+    }
+    
+    header .search-bar {
+        width: 150px;
+        padding: 3px 8px;
+    }
+    
+    header .search-bar input {
+        font-size: 13px;
+    }
+    
+    header nav ul li {
+        margin-right: 10px;
+    }
+    
+    header nav ul li i {
+        font-size: 20px;
+    }
+    
+    header nav ul li img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    section {
+        padding: 15px 10px;
+        margin-top: 60px;
+    }
+    
+    .story {
+        padding: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .story::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+    
+    .story .stories {
+        margin-right: 10px;
+        white-space: normal;
+    }
+    
+    .story .stories a img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .story .stories p {
+        font-size: 11px;
+        width: 50px;
+    }
+    
+    .post .post-bar {
+        padding: 12px;
+    }
+    
+    .post .post-bar .post-left .image img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    
+    .post .post-footer {
+        padding: 12px;
+    }
+    
+    .post .post-footer .like-share-comments i {
+        font-size: 22px;
+        margin-right: 8px;
+    }
+    
+    .post .post-footer-content {
+        padding: 0 12px 12px 12px;
+    }
+    
+    .post .add-comments {
+        padding: 12px;
+    }
+    
+    .post .add-comments .left-side i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .post .add-comments .left-side input {
+        font-size: 13px;
+    }
+    
+    .post .add-comments .right-side p {
+        font-size: 13px;
+    }
+    
+    /* Hide some navigation items on very small screens */
+    .social-icons li:nth-child(2),
+    .social-icons li:nth-child(3),
+    .social-icons li:nth-child(4) {
+        display: none;
+    }
+}
